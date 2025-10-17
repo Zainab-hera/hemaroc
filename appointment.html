@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemaroc - Book Appointment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="70" height="30" fill="currentColor" class="bi bi-calendar2-heart-fill" viewBox="0 0 16 16">
+      <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zm-2 4v-1c0-.276.244-.5.545-.5h10.91c.3 0 .545.224.545.5v1c0 .276-.244.5-.546.5H2.545C2.245 5 2 4.776 2 4.5m6 3.493c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+    </svg>Hemaroc</h1>
+    <nav>
+      <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="donations.html">Donations</a></li>
+      <li><a href="Informations.html">Infos </a></li>
+     <li><a href="appointment.html">Book Appointment</a></li> 
+      <li><a href="contact.html">Contact</a></li>
+     <li><a href="organizer-login.html">Admin </a></li> 
+      </ul>
+    
+    </nav>
+  </header>
+
+  <section class="section" id="bg2">
+    <h3>Book Your Appointment</h3>
+    <form id="appointmentForm">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="phone" placeholder="Phone Number" required>
+  <input type="date" name="date" required>
+  <input type="time" name="time" required>
+  <input type="text" name="location" placeholder="Location" required>
+
+
+  <select name="bloodType" id="bloodType" required>
+    <option value="">Select your blood type</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+    <option value="O+">O+</option>
+    <option value="O-">O-</option>
+  </select>
+
+  <button type="submit">Book Now</button>
+</form>
+
+  </section>
+  <script>
+    const appointmentForm = document.getElementById("appointmentForm");
+    
+    appointmentForm.addEventListener("submit", function(e){
+      e.preventDefault();
+    
+      let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+    
+      const newAppointment = {
+        name: appointmentForm[0].value,
+        email: appointmentForm[1].value,
+        phone: appointmentForm[2].value,
+        date: appointmentForm[3].value,
+        location: appointmentForm[4].value
+      };
+    
+      appointments.push(newAppointment);
+      localStorage.setItem("appointments", JSON.stringify(appointments));
+    
+      alert("Appointment booked successfully!");
+      appointmentForm.reset();
+    });
+    </script>
+    
+
+  <footer>
+    <p>© 2025 Hemaroc | Made in Marrakech</p>
+  </footer>
+
+</body>
+</html>

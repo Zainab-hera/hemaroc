@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1><svg xmlns="http://www.w3.org/2000/svg" width="70" height="30" fill="currentColor" class="bi bi-calendar2-heart-fill" viewBox="0 0 16 16">
+    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zm-2 4v-1c0-.276.244-.5.545-.5h10.91c.3 0 .545.224.545.5v1c0 .276-.244.5-.546.5H2.545C2.245 5 2 4.776 2 4.5m6 3.493c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
+  </svg>Hemaroc</h1>
+  <nav>
+    <ul class="navbar">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="donations.html">Donations</a></li>
+    <li><a href="Informations.html">Infos </a></li>
+   <li><a href="appointment.html">Book Appointment</a></li> 
+    <li><a href="contact.html">Contact</a></li>
+   <li><a href="organizer-login.html">Admin </a></li> 
+    </ul>
+  
+  </nav>
+  <script>
+  function logout(){
+    localStorage.removeItem("loggedIn");
+    window.location.href = "organizer-login.html";
+  }
+  </script>
+  
+</header>
+
+<section class="section" id="bg4">
+  <br>
+  <h3>Add New Donation Event</h3>
+  <form id="eventForm">
+    <input type="text" placeholder="Location" id="eventLocation" required>
+    <input type="date" id="eventDate" required>
+    <input type="time"  placeholder="Start At"id="eventTime" required>
+    <input type="time"  placeholder="End At"id="eventTime2" required>
+    
+    
+    <button type="submit">Add Event</button>
+  
+        <button onclick="logout()">Logout</button>
+        <button onclick="window.location.href='Current-events.html'">Current Events</button>
+        <button onclick="window.location.href='Booked.html'">Booked Appointments</button>
+  </form>
+</section>
+
+<script src="organizer.js"></script>
+<footer>
+  <p>© 2025 Hemaroc | Made in Marrakech</p>
+</footer>
+    
+</body>
+</html>
